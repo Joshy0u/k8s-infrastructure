@@ -4,6 +4,7 @@ deployment:
   replicas: 1
 
 service:
+  enabled: true
   type: NodePort  # This allows you to access Traefik from your browser
   ports:
     web:
