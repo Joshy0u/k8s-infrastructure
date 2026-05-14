@@ -1,0 +1,18 @@
+# charts/traefik/values.yaml
+deployment:
+  kind: Deployment
+  replicas: 1
+
+service:
+  type: NodePort  # This allows you to access Traefik from your browser
+  ports:
+    web:
+      nodePort: 30080 # Standard HTTP port for your browser
+    websecure:
+      nodePort: 30443 # HTTPS (if you want to use it later)
+
+ports:
+  traefik:
+    expose: true # Exposes the Traefik dashboard
+    port: 9000
+    nodePort: 30000 # Access the dashboard at http://localhost:30000/dashboard/
