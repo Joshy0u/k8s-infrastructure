@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: flask
-          image: joshhy0ra/databaseproject:backend-69eed96
+          image: joshhy0ra/databaseproject:backend-b0fe1d5
           ports:
             - containerPort: 5000
           env:
