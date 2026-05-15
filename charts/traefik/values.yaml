@@ -24,3 +24,9 @@ ports:
 ingressRoute:
   dashboard:
     enabled: true
+
+providers:
+  kubernetesCRD:
+    enabled: true
+    allowCrossNamespace: true
+    allowExternalNameServices: true
