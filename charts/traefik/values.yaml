@@ -8,19 +8,22 @@ service:
   type: NodePort  # This allows you to access Traefik from your browser
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-  ports:
-    web:
-      nodePort: 30080 # Standard HTTP port for your browser
-    websecure:
-      nodePort: 30443 # HTTPS (if you want to use it later)
 
 ports:
+  web:
+    port: 8000
+    nodePort: 30080
+    exposedPort: 80
+  websecure:
+    port: 8443
+    nodePort: 30443
+    exposedPort: 443
   traefik:
-    expose:
-      default: true 
     port: 9000
-    nodePort: 30000 # Access the dashboard at http://localhost:30000/dashboard/
-
+    nodePort: 30000
+    expose:
+      default: true
+    
 ingressRoute:
   dashboard:
     enabled: true
