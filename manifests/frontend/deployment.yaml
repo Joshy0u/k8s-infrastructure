@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: joshhy0ra/frontend:v3
+          image: joshhy0ra/databaseproject:frontend-4be7da0
           ports:
             - containerPort: 80
 
