@@ -1,0 +1,5 @@
+NOTE TO SELF: when running apply cmds, MAKE SURE TO SPECIFIY THE NAMESPACE (otherwise it will make shadow copies of your applications/services, that never existed)
+EX: microk8s kubectl apply -f apps/dbprojbackend-app.yaml -n argocd ( i guessed the cmd right!)
+
+NOTE: ARGO IS NOT TRACKING ARGO, so that would explain why changes to argoCD are not actually applying
+

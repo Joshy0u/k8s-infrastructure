@@ -6,7 +6,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Joshy0u/k8s-infrastructure
-    path: manifests/frontend
+    path: charts/frontend
   destination:
     server: https://kubernetes.default.svc 
     namespace: dbproject
