@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+  finalizers:
+    - argoproj.io/resources-finalizer 
+
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Joshy0u/k8s-infrastructure
+    targetRevision: HEAD
+    path: apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true # automatically deletes apps if you delete their file from github
+      selfHeal: true
+
+#note: if incase you need to debug and deploy manually
+# to the cluster, then make sure to turn selfHeal off, so that way
+# argoCD does not wipe your test pods into obliviion. 
