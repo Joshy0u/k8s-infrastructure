@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: dbproject
+  labels:
+    app: frontend 
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+
+  template: 
+    metadata:
+      labels:
+        app: frontend
+
+    spec:
+      containers:
+        - name: frontend
+          image: joshhy0ra/databaseproject:frontend-4be7da0
+          ports:
+            - containerPort: 80
+
